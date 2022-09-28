@@ -15,13 +15,14 @@ const App = () => {
   const [todos, setTodos] = useState([{ id: 1, title: "Chese", status: false }]);
 
   //Добовляем в наш массив задач новую задачу
-  const addTodo = (text) => {
-    const newArrAdd = [...todos, { id: todos.length + 1, title: text, status: false }];
-    setTodos(newArrAdd);
-    notification.open({
-      type: 'success',
-      message: 'Added'
-    });
+  const addTodo = (text) => { 
+    if(text) { // условие чтоб не добовлялась пустая строка
+      setTodos ([...todos, { id: todos.length + 1, title: text, status: false }]);
+      notification.open({
+        type: 'success',
+        message: 'Added'
+      });
+    }  
   };
 
   const deleteTodo = (id) => {

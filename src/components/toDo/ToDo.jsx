@@ -16,7 +16,7 @@ const ToDo = ({ item, deleteTodo, editTodo, chengeStatus }) => {
             okText="Yes"
             cancelText="No"
         >
-            <DeleteOutlined />
+        <DeleteOutlined />
         </Popconfirm>
     ];
 
