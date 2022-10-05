@@ -12,17 +12,29 @@ const { Title } = Typography;
 
 
 const App = () => {
-  const [todos, setTodos] = useState([{ id: 1, title: "Chese", status: false }]);
+  const [todos, setTodos] = useState([{ id: 1, title: "Chese11111", count: 2, date:"2022-09-10", status: false }]);
 
   //Добовляем в наш массив задач новую задачу
-  const addTodo = (text) => { 
-    if(text) { // условие чтоб не добовлялась пустая строка
-      setTodos ([...todos, { id: todos.length + 1, title: text, status: false }]);
+  const addTodo = (data) => { 
+    // if(text) { // условие чтоб не добовлялась пустую строка
+    //   setTodos ([...todos, { id: todos.length + 1, title: text, status: false }]);
+    //   notification.open({
+    //     type: 'success',
+    //     message: 'Added'
+    //   });
+    // }  
+    console.log(data);
+      data.id = todos.length;
+     if(data) { // условие чтоб не добовлялась пустую строка    
+      setTodos ([...todos, data]);
       notification.open({
         type: 'success',
         message: 'Added'
       });
     }  
+
+
+
   };
 
   const deleteTodo = (id) => {

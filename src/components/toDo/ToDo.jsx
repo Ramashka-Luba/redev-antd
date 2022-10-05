@@ -2,6 +2,7 @@
 import { Col, Row, Input, List, Popconfirm, Checkbox } from 'antd';
 import { useState } from 'react';
 import { EditOutlined, DeleteOutlined, SaveOutlined } from '@ant-design/icons';
+import moment from 'moment';
 
 const ToDo = ({ item, deleteTodo, editTodo, chengeStatus }) => {
 
@@ -45,9 +46,13 @@ const ToDo = ({ item, deleteTodo, editTodo, chengeStatus }) => {
                         : <Col>
                             <Checkbox onChange={() => chengeStatus(item.id)}>
                                 {item.status ? (
+                                    
                                     <p style={{textDecoration:"line-through"}}>{item.title}</p>
                                 ) : (
-                                    <p>{item.title}</p>
+                                    <>
+                                        <p>{item.title} / {item.count} / {moment(item.date).format("MMM Do YY")}</p>
+                                    </>
+                                    
                                 )}
                             </Checkbox>
                         </Col>
